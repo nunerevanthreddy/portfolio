@@ -1,33 +1,49 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { ExternalLink, Award, Calendar } from 'lucide-react';
+import { ExternalLink, Award } from 'lucide-react';
 import API from '../utils/api.js';
 
-// Pre-defined fallback credentials
+// Resume certifications
 const defaultCertificates = [
   {
     _id: 'cert-1',
-    title: 'Meta Front-End Developer Specialization',
-    issuer: 'Meta / Coursera',
-    date: 'March 2024',
-    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500&q=80',
-    verificationUrl: 'https://coursera.org',
+    title: 'Python for Data Science',
+    issuer: 'Cisco Networking Academy',
+    date: 'Certified',
+    image: 'https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?auto=format&fit=crop&w=500&q=80',
+    verificationUrl: 'https://www.netacad.com',
   },
   {
     _id: 'cert-2',
-    title: 'MongoDB Certified Developer Associate',
-    issuer: 'MongoDB Academy',
-    date: 'September 2025',
-    image: 'https://images.unsplash.com/photo-1542744094-3a31f103e35f?auto=format&fit=crop&w=500&q=80',
-    verificationUrl: 'https://university.mongodb.com',
+    title: 'Generative AI Professionals',
+    issuer: 'Oracle University',
+    date: 'Certified',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=500&q=80',
+    verificationUrl: 'https://education.oracle.com',
   },
   {
     _id: 'cert-3',
-    title: 'AWS Certified Solutions Architect',
-    issuer: 'Amazon Web Services',
-    date: 'January 2026',
+    title: 'Programming in JAVA',
+    issuer: 'NPTEL',
+    date: 'Certified',
+    image: 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=500&q=80',
+    verificationUrl: 'https://nptel.ac.in',
+  },
+  {
+    _id: 'cert-4',
+    title: '500 Difficulty Rating Achievement',
+    issuer: 'CodeChef',
+    date: 'Achieved',
+    image: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=500&q=80',
+    verificationUrl: 'https://www.codechef.com',
+  },
+  {
+    _id: 'cert-5',
+    title: 'Python for Beginners',
+    issuer: 'Great Learning',
+    date: 'Certified',
     image: 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=500&q=80',
-    verificationUrl: 'https://aws.amazon.com',
+    verificationUrl: 'https://www.mygreatlearning.com',
   },
 ];
 
@@ -77,7 +93,7 @@ const Certificates = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-3 text-3xl font-extrabold tracking-tight dark:text-portfolio-text text-slate-900 sm:text-4xl"
           >
-            Certificates & Licenses
+            Certifications & Achievements
           </motion.h3>
         </div>
 
@@ -108,7 +124,7 @@ const Certificates = () => {
                     rel="noreferrer"
                     className="flex items-center gap-1.5 px-4 py-2 text-xs font-semibold rounded-full bg-portfolio-primary text-white shadow-lg transition-transform duration-300 hover:scale-105"
                   >
-                    Verify Certificate <ExternalLink size={12} />
+                    View Credential <ExternalLink size={12} />
                   </a>
                 </div>
               </div>
@@ -125,9 +141,7 @@ const Certificates = () => {
                 </div>
 
                 <div className="mt-4 flex items-center justify-between text-xs text-slate-500 dark:text-portfolio-muted font-mono">
-                  <span className="flex items-center gap-1">
-                    <Calendar size={12} /> {cert.date}
-                  </span>
+                  <span>{cert.date}</span>
                   
                   {cert.verificationUrl && (
                     <a

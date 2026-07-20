@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Github, Linkedin, Mail, FileText, ArrowRight, Code, Cpu, Database, Layout } from 'lucide-react';
+import { Github, Linkedin, Mail, FileText, ArrowRight, Code, Cpu, Database, Layout, Smartphone } from 'lucide-react';
 
-const titles = ['Full Stack Developer', 'Web Developer', 'Software Engineer'];
+const titles = ['Software Engineer', 'Full Stack Developer', 'Android Developer', 'Python Developer'];
 
 const Hero = () => {
   const [titleIndex, setTitleIndex] = useState(0);
@@ -15,7 +15,6 @@ const Hero = () => {
     const typingSpeed = isDeleting ? 40 : 100;
 
     if (!isDeleting && displayText === currentTitle) {
-      // Wait before starting to delete
       timer = setTimeout(() => setIsDeleting(true), 2000);
     } else if (isDeleting && displayText === '') {
       setIsDeleting(false);
@@ -60,8 +59,8 @@ const Hero = () => {
         transition={{ duration: 5, repeat: Infinity, ease: 'easeInOut' }}
         className="absolute top-1/3 left-10 lg:left-24 hidden md:flex items-center gap-2 p-3 bg-white/5 dark:bg-white/5 backdrop-blur-md border border-slate-200 dark:border-portfolio-border rounded-xl shadow-lg pointer-events-none"
       >
-        <Layout className="text-portfolio-accent" size={20} />
-        <span className="text-xs font-mono font-semibold dark:text-slate-200 text-slate-700">UI/UX Designer</span>
+        <Smartphone className="text-portfolio-accent" size={20} />
+        <span className="text-xs font-mono font-semibold dark:text-slate-200 text-slate-700">Android & Kotlin</span>
       </motion.div>
 
       <motion.div
@@ -70,7 +69,7 @@ const Hero = () => {
         className="absolute bottom-1/3 right-10 lg:right-24 hidden md:flex items-center gap-2 p-3 bg-white/5 dark:bg-white/5 backdrop-blur-md border border-slate-200 dark:border-portfolio-border rounded-xl shadow-lg pointer-events-none"
       >
         <Database className="text-portfolio-secondary" size={20} />
-        <span className="text-xs font-mono font-semibold dark:text-slate-200 text-slate-700">MongoDB / SQL</span>
+        <span className="text-xs font-mono font-semibold dark:text-slate-200 text-slate-700">MongoDB & SQL</span>
       </motion.div>
 
       <motion.div
@@ -79,7 +78,7 @@ const Hero = () => {
         className="absolute top-1/4 right-16 lg:right-48 hidden md:flex items-center gap-2 p-3 bg-white/5 dark:bg-white/5 backdrop-blur-md border border-slate-200 dark:border-portfolio-border rounded-xl shadow-lg pointer-events-none"
       >
         <Code className="text-portfolio-primary" size={20} />
-        <span className="text-xs font-mono font-semibold dark:text-slate-200 text-slate-700">React + Express</span>
+        <span className="text-xs font-mono font-semibold dark:text-slate-200 text-slate-700">Python & Java</span>
       </motion.div>
 
       {/* Main Grid Content */}
@@ -92,7 +91,7 @@ const Hero = () => {
             transition={{ duration: 0.5 }}
             className="text-xs sm:text-sm font-bold tracking-widest font-mono text-portfolio-primary dark:text-portfolio-accent uppercase"
           >
-            Welcome to my professional space
+            Welcome to my official portfolio
           </motion.p>
           
           <motion.h1
@@ -101,7 +100,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-4 text-4xl sm:text-6xl font-extrabold tracking-tight dark:text-portfolio-text text-slate-900"
           >
-            Hi, I'm <span className="bg-gradient-to-r from-portfolio-primary via-portfolio-accent to-portfolio-secondary bg-clip-text text-transparent">Revanth Reddy</span>
+            Hi, I'm <span className="bg-gradient-to-r from-portfolio-primary via-portfolio-accent to-portfolio-secondary bg-clip-text text-transparent">Nune Revanth Reddy</span>
           </motion.h1>
 
           <motion.div
@@ -124,7 +123,7 @@ const Hero = () => {
             transition={{ duration: 0.5, delay: 0.3 }}
             className="mt-4 text-base sm:text-lg dark:text-portfolio-muted text-slate-600 max-w-xl leading-relaxed mx-auto lg:mx-0"
           >
-            I architect and implement secure, high-performance, full-stack digital products. Specializing in highly visual frontend interfaces, performant APIs, and structured database systems.
+            Enthusiastic computer science undergraduate with hands-on experience in software and Android development. Proficient in Python, Java, C, OOP, SQL, and databases (MySQL & MongoDB Atlas).
           </motion.p>
 
           {/* CTA Buttons */}
@@ -139,15 +138,15 @@ const Hero = () => {
               onClick={handleScrollToContact}
               className="flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-white bg-portfolio-primary hover:bg-portfolio-primary/95 shadow-[0_4px_15px_rgba(37,99,235,0.4)] transition-all"
             >
-              Hire Me <ArrowRight size={16} />
+              Contact Me <ArrowRight size={16} />
             </a>
 
             <a
               href="#contact"
-              onClick={handleScrollToContact} // For now links to contact, mock resume download
+              onClick={handleScrollToContact}
               className="flex items-center gap-2 px-6 py-3 rounded-full font-semibold text-slate-750 dark:text-white bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-portfolio-border hover:bg-slate-200 dark:hover:bg-white/10 transition-all"
             >
-              Download CV <FileText size={16} />
+              Get CV <FileText size={16} />
             </a>
           </motion.div>
 
@@ -175,7 +174,7 @@ const Hero = () => {
               <Linkedin size={20} />
             </a>
             <a
-              href="mailto:your_email@gmail.com"
+              href="mailto:nunerevanthreddy05@gmail.com"
               className="p-3 rounded-full border border-slate-200 dark:border-portfolio-border bg-slate-50 dark:bg-white/5 text-slate-600 dark:text-slate-300 hover:text-portfolio-primary dark:hover:text-portfolio-accent hover:border-portfolio-primary transition-all"
             >
               <Mail size={20} />
@@ -195,13 +194,12 @@ const Hero = () => {
             <div className="absolute inset-0 bg-gradient-to-tr from-portfolio-primary via-portfolio-accent to-portfolio-secondary rounded-[40%_60%_70%_30%/40%_50%_60%_50%] opacity-40 animate-spin-slow blur-xl" />
             <div className="absolute inset-2 bg-gradient-to-bl from-portfolio-accent via-portfolio-secondary to-portfolio-primary rounded-[60%_40%_30%_70%/50%_60%_40%_60%] opacity-55 animate-spin-slow duration-10000 blur-lg" />
 
-            {/* Simulated Profile Image Container */}
+            {/* Profile Frame */}
             <div className="absolute inset-4 rounded-[50%_50%_45%_55%/45%_45%_55%_55%] bg-slate-900 border-2 border-portfolio-primary/40 overflow-hidden flex items-center justify-center shadow-2xl">
-              {/* Fallback elegant developer icon representation */}
               <div className="flex flex-col items-center">
                 <Cpu className="text-portfolio-accent animate-pulse" size={80} />
                 <span className="mt-4 font-mono text-sm tracking-wider font-semibold bg-gradient-to-r from-portfolio-primary to-portfolio-accent bg-clip-text text-transparent">
-                  &lt; DEVELOPER &gt;
+                  &lt; REVANTH REDDY &gt;
                 </span>
               </div>
             </div>

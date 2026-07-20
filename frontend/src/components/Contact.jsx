@@ -14,7 +14,7 @@ const Contact = () => {
 
   const [errors, setErrors] = useState({});
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(null); // 'success' | 'error'
+  const [submitStatus, setSubmitStatus] = useState(null);
 
   const validateForm = () => {
     const tempErrors = {};
@@ -37,7 +37,6 @@ const Contact = () => {
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear validation error when typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: '' }));
     }
@@ -114,8 +113,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-xs text-slate-400 dark:text-portfolio-muted font-mono">Email Address</p>
-                    <a href="mailto:your_email@gmail.com" className="text-sm font-semibold dark:text-slate-200 text-slate-700 hover:underline">
-                      your_email@gmail.com
+                    <a href="mailto:nunerevanthreddy05@gmail.com" className="text-sm font-semibold dark:text-slate-200 text-slate-700 hover:underline">
+                      nunerevanthreddy05@gmail.com
                     </a>
                   </div>
                 </div>
@@ -126,8 +125,8 @@ const Contact = () => {
                   </div>
                   <div>
                     <p className="text-xs text-slate-400 dark:text-portfolio-muted font-mono">Phone Number</p>
-                    <a href="tel:+919876543210" className="text-sm font-semibold dark:text-slate-200 text-slate-700 hover:underline">
-                      +91 98765 43210
+                    <a href="tel:+919059776979" className="text-sm font-semibold dark:text-slate-200 text-slate-700 hover:underline">
+                      +91 9059776979
                     </a>
                   </div>
                 </div>
@@ -139,7 +138,7 @@ const Contact = () => {
                   <div>
                     <p className="text-xs text-slate-400 dark:text-portfolio-muted font-mono">Location</p>
                     <p className="text-sm font-semibold dark:text-slate-200 text-slate-700">
-                      Hyderabad, Telangana, India
+                      Guntur, Andhra Pradesh, India
                     </p>
                   </div>
                 </div>
@@ -176,7 +175,7 @@ const Contact = () => {
             >
               <iframe
                 title="Location Map"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d243647.31603953792!2d78.26795908992147!3d17.412299803112316!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bcb99daeaeb2cbb%3A0x7f324d77aaf139a9!2sHyderabad%2C%20Telangana!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d61245.987747370395!2d80.40722216503906!3d16.306652499999997!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3a4a755cb8073e0d%3A0x94f1c93a8d11c05d!2sGuntur%2C%20Andhra%20Pradesh!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin"
                 className="w-full h-full border-none filter invert-[0.9] dark:invert-0"
                 allowFullScreen=""
                 loading="lazy"
@@ -197,17 +196,16 @@ const Contact = () => {
 
               <form onSubmit={handleSubmit} className="space-y-5">
                 
-                {/* Submit Feedback Banners */}
                 {submitStatus === 'success' && (
                   <div className="flex gap-2 items-center p-4 rounded-xl bg-portfolio-success/10 border border-portfolio-success text-portfolio-success text-sm font-semibold">
                     <CheckCircle2 size={16} />
-                    <span>Your message has been sent successfully! I will reach out soon.</span>
+                    <span>Your message has been sent successfully! I will get back to you soon.</span>
                   </div>
                 )}
                 {submitStatus === 'error' && (
                   <div className="flex gap-2 items-center p-4 rounded-xl bg-red-500/10 border border-red-500 text-red-500 text-sm font-semibold">
                     <AlertCircle size={16} />
-                    <span>Oops, something went wrong. Please check your credentials or try again later.</span>
+                    <span>Oops, something went wrong. Please try again later.</span>
                   </div>
                 )}
 
@@ -258,7 +256,7 @@ const Contact = () => {
                       value={formData.phone}
                       onChange={handleInputChange}
                       className="w-full px-4 py-2.5 rounded-lg border border-slate-200 dark:border-portfolio-border bg-slate-50 dark:bg-white/5 dark:text-portfolio-text text-slate-800 focus:outline-none focus:ring-1 focus:ring-portfolio-primary focus:border-portfolio-primary text-sm"
-                      placeholder="+91 98765 43210"
+                      placeholder="+91 9059776979"
                     />
                   </div>
 
@@ -274,7 +272,7 @@ const Contact = () => {
                       className={`w-full px-4 py-2.5 rounded-lg border bg-slate-50 dark:bg-white/5 dark:text-portfolio-text text-slate-800 focus:outline-none focus:ring-1 focus:ring-portfolio-primary focus:border-portfolio-primary text-sm ${
                         errors.subject ? 'border-red-500' : 'border-slate-200 dark:border-portfolio-border'
                       }`}
-                      placeholder="Project Discussion"
+                      placeholder="Project Opportunity"
                     />
                     {errors.subject && <span className="text-[10px] text-red-500 font-mono mt-1 block">{errors.subject}</span>}
                   </div>
@@ -292,7 +290,7 @@ const Contact = () => {
                     className={`w-full px-4 py-2.5 rounded-lg border bg-slate-50 dark:bg-white/5 dark:text-portfolio-text text-slate-800 focus:outline-none focus:ring-1 focus:ring-portfolio-primary focus:border-portfolio-primary text-sm resize-none ${
                       errors.message ? 'border-red-500' : 'border-slate-200 dark:border-portfolio-border'
                     }`}
-                    placeholder="Tell me about your project..."
+                    placeholder="Write your message here..."
                   />
                   {errors.message && <span className="text-[10px] text-red-500 font-mono mt-1 block">{errors.message}</span>}
                 </div>

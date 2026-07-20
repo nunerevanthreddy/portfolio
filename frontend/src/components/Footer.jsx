@@ -1,5 +1,5 @@
 import React from 'react';
-import { ArrowUp, Github, Linkedin, Mail, ShieldAlert } from 'lucide-react';
+import { ArrowUp, Github, Linkedin, ShieldAlert } from 'lucide-react';
 
 const Footer = () => {
   const scrollToTop = () => {
@@ -16,10 +16,10 @@ const Footer = () => {
         {/* Logo and Copyright details */}
         <div className="flex flex-col items-center md:items-start text-center md:text-left">
           <span className="text-lg font-bold tracking-widest bg-gradient-to-r from-portfolio-primary via-portfolio-accent to-portfolio-secondary bg-clip-text text-transparent">
-            REVANTH REDDY
+            NUNE REVANTH REDDY
           </span>
           <p className="mt-2 text-xs font-mono">
-            &copy; {new Date().getFullYear()} Revanth Reddy. All rights reserved.
+            &copy; {new Date().getFullYear()} Nune Revanth Reddy. All rights reserved.
           </p>
         </div>
 
@@ -27,7 +27,8 @@ const Footer = () => {
         <div className="flex flex-wrap gap-4 md:gap-6 justify-center text-xs font-semibold uppercase tracking-wider">
           <a href="#about" className="hover:text-portfolio-primary dark:hover:text-portfolio-accent transition-colors">About</a>
           <a href="#projects" className="hover:text-portfolio-primary dark:hover:text-portfolio-accent transition-colors">Projects</a>
-          <a href="#experience" className="hover:text-portfolio-primary dark:hover:text-portfolio-accent transition-colors">Experience</a>
+          <a href="#skills" className="hover:text-portfolio-primary dark:hover:text-portfolio-accent transition-colors">Skills</a>
+          <a href="#education" className="hover:text-portfolio-primary dark:hover:text-portfolio-accent transition-colors">Education</a>
           <a href="#certificates" className="hover:text-portfolio-primary dark:hover:text-portfolio-accent transition-colors">Certificates</a>
           <a href="/login" className="flex items-center gap-1 hover:text-portfolio-primary dark:hover:text-portfolio-accent transition-colors">
             <ShieldAlert size={12} /> Admin Login
@@ -36,7 +37,6 @@ const Footer = () => {
 
         {/* Back To Top & Social icons */}
         <div className="flex items-center gap-4">
-          {/* Socials */}
           <div className="flex gap-2">
             <a
               href="https://github.com/nunerevanthreddy"
@@ -58,7 +58,6 @@ const Footer = () => {
             </a>
           </div>
 
-          {/* Scroll Pin Button */}
           <button
             onClick={scrollToTop}
             className="p-2.5 rounded-xl bg-portfolio-primary text-white hover:bg-portfolio-primary/95 transition-all shadow-md shadow-portfolio-primary/20"

@@ -1,21 +1,28 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, BookOpen, Calendar } from 'lucide-react';
+import { BookOpen, Calendar, MapPin } from 'lucide-react';
 
 const educationData = [
   {
-    degree: 'Bachelor of Technology in Computer Science',
-    college: 'Jawaharlal Nehru Technological University',
-    year: '2018 - 2022',
-    cgpa: '8.4 / 10',
-    details: 'Specialized in Software Engineering, Database Management Systems, Data Structures, and Web Architectures.',
+    degree: 'Bachelor of Technology (Computer Science Engineering)',
+    college: 'Vasireddy Venkatadri Institute of Technology',
+    location: 'Namburu, Guntur',
+    year: 'Expected June 2027',
+    details: 'Focusing on Software Engineering, Data Structures, OOPs, Database Management Systems, Python, and Android Development.',
   },
   {
-    degree: 'Senior Secondary Education (MPC)',
-    college: 'Narayana Junior College',
-    year: '2016 - 2018',
-    cgpa: '9.6 / 10',
-    details: 'Completed with major concentrations in Mathematics, Physics, and Chemistry.',
+    degree: 'Board of Intermediate',
+    college: 'Sri Chaithanya Junior College',
+    location: 'Guntur, AP',
+    year: 'Aug 2021 - May 2023',
+    details: 'Completed Intermediate education with major focus on Mathematics, Physics, and Chemistry.',
+  },
+  {
+    degree: 'Board of Secondary Education',
+    college: 'FIITJEE International School',
+    location: 'Vijayawada, AP',
+    year: 'Jun 2020 - May 2021',
+    details: 'Secondary Education with strong foundations in science, analytical thinking, and mathematics.',
   },
 ];
 
@@ -42,7 +49,7 @@ const Education = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-3 text-3xl font-extrabold tracking-tight dark:text-portfolio-text text-slate-900 sm:text-4xl"
           >
-            Education & Learning
+            Education & Academic Background
           </motion.h3>
         </div>
 
@@ -84,23 +91,21 @@ const Education = () => {
                       </span>
 
                       {/* Header details */}
-                      <h4 className="mt-2 text-lg font-bold dark:text-portfolio-text text-slate-805">
+                      <h4 className="mt-2 text-base sm:text-lg font-bold dark:text-portfolio-text text-slate-805">
                         {edu.degree}
                       </h4>
-                      <h5 className="text-xs font-semibold text-slate-500 dark:text-portfolio-muted">
+                      <h5 className="text-xs font-semibold text-slate-500 dark:text-portfolio-muted mt-1">
                         {edu.college}
                       </h5>
+
+                      <div className="mt-2 flex items-center gap-1 text-xs text-portfolio-accent font-mono">
+                        <MapPin size={12} /> {edu.location}
+                      </div>
 
                       {/* Summary */}
                       <p className="mt-3 text-xs text-slate-650 dark:text-portfolio-muted leading-relaxed">
                         {edu.details}
                       </p>
-
-                      {/* Scores */}
-                      <div className="mt-4 flex items-center gap-2 text-xs font-semibold font-mono text-portfolio-success">
-                        <Award size={14} />
-                        <span>Cumulative Score: {edu.cgpa}</span>
-                      </div>
                     </div>
                   </motion.div>
                 </div>

@@ -1,12 +1,12 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Award, Briefcase, Users, Code2 } from 'lucide-react';
+import { Award, Briefcase, Users, Code2, GraduationCap } from 'lucide-react';
 
 const stats = [
-  { label: 'Years Experience', value: '5+', icon: Briefcase, color: 'text-portfolio-primary' },
-  { label: 'Projects Completed', value: '40+', icon: Code2, color: 'text-portfolio-accent' },
-  { label: 'Satisfied Clients', value: '25+', icon: Users, color: 'text-portfolio-secondary' },
-  { label: 'Certificates Earned', value: '15+', icon: Award, color: 'text-portfolio-success' },
+  { label: 'Academic Year', value: '2023-27', icon: GraduationCap, color: 'text-portfolio-primary' },
+  { label: 'Core Projects', value: '2+', icon: Code2, color: 'text-portfolio-accent' },
+  { label: 'Certifications', value: '5+', icon: Award, color: 'text-portfolio-secondary' },
+  { label: 'CodeChef Rating', value: '500+', icon: Briefcase, color: 'text-portfolio-success' },
 ];
 
 const About = () => {
@@ -32,14 +32,14 @@ const About = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-3 text-3xl font-extrabold tracking-tight dark:text-portfolio-text text-slate-900 sm:text-4xl"
           >
-            Crafting Scalable, High-Impact Web Solutions
+            Building Scalable Web & Mobile Solutions
           </motion.h3>
         </div>
 
         {/* Content Grid */}
         <div className="mt-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
           
-          {/* Left side illustration/photo */}
+          {/* Left side info card */}
           <div className="lg:col-span-5 flex justify-center">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
@@ -51,10 +51,11 @@ const About = () => {
               <div className="absolute inset-0 bg-gradient-to-tr from-portfolio-primary/10 to-portfolio-secondary/15" />
               <div className="w-full h-full border border-dashed border-portfolio-accent/30 rounded-xl flex flex-col items-center justify-center p-6 text-center">
                 <Code2 className="text-portfolio-accent animate-pulse mb-4" size={48} />
-                <h4 className="text-lg font-bold dark:text-portfolio-text text-slate-800">Revanth Reddy</h4>
-                <p className="text-xs text-portfolio-primary dark:text-portfolio-accent font-mono mt-1">Hyderabad, India</p>
-                <p className="text-sm dark:text-portfolio-muted text-slate-500 mt-4 leading-relaxed">
-                  Passionate about full-stack architectures, clean codebases, and seamless deployment paradigms.
+                <h4 className="text-lg font-bold dark:text-portfolio-text text-slate-800">Nune Revanth Reddy</h4>
+                <p className="text-xs text-portfolio-primary dark:text-portfolio-accent font-mono mt-1">Vasireddy Venkatadri Institute of Technology</p>
+                <p className="text-xs text-slate-500 dark:text-portfolio-muted mt-1">Guntur, Andhra Pradesh</p>
+                <p className="text-sm dark:text-portfolio-muted text-slate-500 mt-4 leading-relaxed line-clamp-3">
+                  Computer Science undergraduate passionate about full-stack engineering, OpenCV computer vision, and cloud databases.
                 </p>
               </div>
             </motion.div>
@@ -69,14 +70,14 @@ const About = () => {
               transition={{ duration: 0.6 }}
               className="space-y-6"
             >
-              <h4 className="text-xl font-bold dark:text-slate-100 text-slate-800">My Professional Journey</h4>
+              <h4 className="text-xl font-bold dark:text-slate-100 text-slate-800">Executive Summary</h4>
               
               <p className="text-slate-600 dark:text-portfolio-muted leading-relaxed">
-                I am a Full Stack Developer dedicated to creating elegant and secure digital products. I bridging the gap between design and scalable, robust engineering.
+                I am an enthusiastic and detail-oriented undergraduate with a strong academic background and hands-on experience in software and Android development.
               </p>
 
               <p className="text-slate-600 dark:text-portfolio-muted leading-relaxed">
-                My work spans designing custom responsive user interfaces using React and Tailwind CSS, to architecting secure RESTful endpoints in Node.js, and organizing data patterns inside MongoDB. I focus on writing maintainable, self-documenting code and optimizing speed performance.
+                Proficient in Python, Java, and C, with solid knowledge of Object-Oriented Programming (OOP), SQL, and database systems including MySQL and MongoDB Atlas. Developed projects such as a product verification system with secure authentication and QR-based validation, and an Android-based travel assistant using OpenCV and SQLite.
               </p>
 
               {/* Statistics Grid */}

@@ -3,42 +3,37 @@ import { motion } from 'framer-motion';
 
 const skillCategories = [
   {
-    title: 'Frontend Development',
+    title: 'Programming Languages',
     skills: [
-      { name: 'React', level: 92 },
-      { name: 'Next.js', level: 85 },
-      { name: 'JavaScript (ES6+)', level: 95 },
-      { name: 'Tailwind CSS', level: 95 },
-      { name: 'HTML5 & CSS3', level: 95 },
-      { name: 'Bootstrap', level: 80 },
+      { name: 'Python', level: 90 },
+      { name: 'Java', level: 85 },
+      { name: 'C', level: 80 },
     ],
   },
   {
-    title: 'Backend & Databases',
+    title: 'Core Concepts & Databases',
     skills: [
-      { name: 'Node.js', level: 88 },
-      { name: 'Express.js', level: 90 },
-      { name: 'MongoDB', level: 85 },
-      { name: 'Firebase', level: 80 },
-      { name: 'Supabase', level: 75 },
+      { name: 'OOPs Concepts', level: 90 },
+      { name: 'SQL', level: 85 },
+      { name: 'MongoDB / MongoDB Atlas', level: 85 },
+      { name: 'MySQL', level: 80 },
+      { name: 'SQLite', level: 80 },
     ],
   },
   {
-    title: 'Languages',
+    title: 'Mobile & Computer Vision',
     skills: [
-      { name: 'Python', level: 82 },
-      { name: 'Java', level: 80 },
-      { name: 'C++', level: 70 },
-      { name: 'C', level: 75 },
+      { name: 'Android Studio', level: 85 },
+      { name: 'Kotlin', level: 78 },
+      { name: 'OpenCV Object Detection', level: 75 },
     ],
   },
   {
-    title: 'Tools & Others',
+    title: 'Version Control & Tools',
     skills: [
       { name: 'Git & GitHub', level: 90 },
-      { name: 'Docker', level: 75 },
-      { name: 'VS Code', level: 95 },
-      { name: 'Postman', level: 90 },
+      { name: 'HTML & CSS & JavaScript', level: 85 },
+      { name: 'VS Code & Postman', level: 90 },
     ],
   },
 ];
@@ -57,7 +52,7 @@ const Skills = () => {
             transition={{ duration: 0.5 }}
             className="text-xs font-bold tracking-widest font-mono text-portfolio-primary dark:text-portfolio-accent uppercase"
           >
-            Capabilities
+            Proficiencies
           </motion.h2>
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
@@ -66,7 +61,7 @@ const Skills = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-3 text-3xl font-extrabold tracking-tight dark:text-portfolio-text text-slate-900 sm:text-4xl"
           >
-            My Technical Toolbox
+            Technical Skill Set
           </motion.h3>
         </div>
 

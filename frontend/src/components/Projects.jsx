@@ -1,53 +1,35 @@
 import React, { useEffect, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Search, ExternalLink, Github, X, Eye, Code } from 'lucide-react';
+import { Search, ExternalLink, Github, X, Eye } from 'lucide-react';
 import API from '../utils/api.js';
 
-// Pre-defined fallback projects in case API is empty / offline
+// Default projects matching Nune Revanth Reddy's resume
 const defaultProjects = [
   {
     _id: 'default-1',
-    title: 'Collaborative Kanban Tool',
-    description: 'A premium real-time Kanban management board featuring Drag-and-Drop, subtask checklists, and collaborative workspaces. Designed to help teams coordinate workflow stages efficiently.',
-    image: 'https://images.unsplash.com/photo-1611224885990-ab7363d1f2a9?auto=format&fit=crop&w=600&q=80',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS', 'Framer Motion'],
+    title: 'VerifiedPro – Smart Product Verification System',
+    description: 'A full-stack product verification platform using Python and web technologies. Implements secure user authentication and QR/ID-based product validation with MongoDB Atlas integration for cloud storage.',
+    image: 'https://images.unsplash.com/photo-1618005182384-a83a8bd57fbe?auto=format&fit=crop&w=600&q=80',
+    technologies: ['Python', 'HTML', 'CSS', 'JavaScript', 'MongoDB Atlas'],
     githubUrl: 'https://github.com/nunerevanthreddy',
     liveUrl: 'https://github.com/nunerevanthreddy',
     category: 'Full Stack',
+    date: 'Jul 2025 - Mar 2026'
   },
   {
     _id: 'default-2',
-    title: 'Holographic Crypto Tracker',
-    description: 'Interactive dashboard visualising cryptocurrency market trends. Integrates real-time price feeds, historical candlestick charts, and customized price alerts.',
-    image: 'https://images.unsplash.com/photo-1621761191319-c6fb62004040?auto=format&fit=crop&w=600&q=80',
-    technologies: ['React', 'Tailwind CSS', 'ChartJS', 'CoinGecko API'],
+    title: 'SmartPack – Pack Smarter, Travel Lighter',
+    description: 'An Android app helping travelers pack effectively based on trip duration, weather, and destination. Features OpenCV object detection via device camera to verify packed items and SQLite for local history.',
+    image: 'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=600&q=80',
+    technologies: ['Kotlin', 'Android Studio', 'SQLite', 'OpenCV'],
     githubUrl: 'https://github.com/nunerevanthreddy',
     liveUrl: 'https://github.com/nunerevanthreddy',
-    category: 'Frontend',
-  },
-  {
-    _id: 'default-3',
-    title: 'Secure Chat Server',
-    description: 'High-performance WebSockets chat engine with secure user authentications, channel divisions, system logs, and image attachment configurations.',
-    image: 'https://images.unsplash.com/photo-1611746872915-64382b5c76da?auto=format&fit=crop&w=600&q=80',
-    technologies: ['Node.js', 'Express', 'WebSockets', 'MongoDB', 'Helmet'],
-    githubUrl: 'https://github.com/nunerevanthreddy',
-    liveUrl: 'https://github.com/nunerevanthreddy',
-    category: 'Backend',
-  },
-  {
-    _id: 'default-4',
-    title: 'Personal Finance Planner',
-    description: 'An AI-powered personal financial tracking application. Categorizes expenses automatically, tracks saving targets, and generates downloadable monthly budget breakdowns.',
-    image: 'https://images.unsplash.com/photo-1559526324-4b87b5e36e44?auto=format&fit=crop&w=600&q=80',
-    technologies: ['React', 'Node.js', 'Express', 'MongoDB', 'Tailwind CSS'],
-    githubUrl: 'https://github.com/nunerevanthreddy',
-    liveUrl: 'https://github.com/nunerevanthreddy',
-    category: 'Full Stack',
+    category: 'Mobile App',
+    date: 'Jan 2025 - May 2025'
   },
 ];
 
-const categories = ['All', 'Full Stack', 'Frontend', 'Backend'];
+const categories = ['All', 'Full Stack', 'Mobile App'];
 
 const Projects = () => {
   const [projects, setProjects] = useState([]);
@@ -66,7 +48,7 @@ const Projects = () => {
           setProjects(defaultProjects);
         }
       } catch (error) {
-        console.warn('Could not fetch projects. Using default placeholders.', error);
+        console.warn('Could not fetch projects. Using defaults.', error);
         setProjects(defaultProjects);
       } finally {
         setLoading(false);
@@ -102,7 +84,7 @@ const Projects = () => {
             transition={{ duration: 0.5 }}
             className="text-xs font-bold tracking-widest font-mono text-portfolio-primary dark:text-portfolio-accent uppercase"
           >
-            My Works
+            My Showcase
           </motion.h2>
           <motion.h3
             initial={{ opacity: 0, y: 20 }}
@@ -111,7 +93,7 @@ const Projects = () => {
             transition={{ duration: 0.5, delay: 0.1 }}
             className="mt-3 text-3xl font-extrabold tracking-tight dark:text-portfolio-text text-slate-900 sm:text-4xl"
           >
-            Featured Projects
+            Featured Software Projects
           </motion.h3>
         </div>
 
@@ -148,7 +130,7 @@ const Projects = () => {
         </div>
 
         {/* Project Grid */}
-        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <motion.div layout className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
           <AnimatePresence mode="popLayout">
             {filteredProjects.map((project) => (
               <motion.div
@@ -193,20 +175,27 @@ const Projects = () => {
                 {/* Card Content */}
                 <div className="p-6 flex-1 flex flex-col justify-between">
                   <div>
-                    <span className="text-[10px] font-bold tracking-widest font-mono text-portfolio-primary dark:text-portfolio-accent uppercase">
-                      {project.category}
-                    </span>
-                    <h4 className="mt-2 text-lg font-bold dark:text-portfolio-text text-slate-800 line-clamp-1">
+                    <div className="flex justify-between items-center mb-2">
+                      <span className="text-[10px] font-bold tracking-widest font-mono text-portfolio-primary dark:text-portfolio-accent uppercase">
+                        {project.category}
+                      </span>
+                      {project.date && (
+                        <span className="text-[10px] font-mono text-slate-400">
+                          {project.date}
+                        </span>
+                      )}
+                    </div>
+                    <h4 className="text-lg font-bold dark:text-portfolio-text text-slate-800">
                       {project.title}
                     </h4>
-                    <p className="mt-2 text-xs text-slate-500 dark:text-portfolio-muted line-clamp-3 leading-relaxed">
+                    <p className="mt-2 text-xs text-slate-500 dark:text-portfolio-muted leading-relaxed line-clamp-3">
                       {project.description}
                     </p>
                   </div>
 
                   {/* Tech Tags */}
                   <div className="mt-6 flex flex-wrap gap-1.5">
-                    {project.technologies.slice(0, 3).map((tech) => (
+                    {project.technologies.map((tech) => (
                       <span
                         key={tech}
                         className="px-2 py-0.5 text-[10px] font-mono font-semibold rounded bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-portfolio-border text-slate-600 dark:text-slate-300"
@@ -214,11 +203,6 @@ const Projects = () => {
                         {tech}
                       </span>
                     ))}
-                    {project.technologies.length > 3 && (
-                      <span className="px-2 py-0.5 text-[10px] font-mono font-semibold rounded bg-slate-100 dark:bg-white/5 text-slate-500">
-                        +{project.technologies.length - 3}
-                      </span>
-                    )}
                   </div>
                 </div>
               </motion.div>
@@ -252,7 +236,6 @@ const Projects = () => {
               exit={{ scale: 0.9, y: 20 }}
               className="relative w-full max-w-2xl rounded-2xl border border-slate-200 dark:border-portfolio-border bg-white dark:bg-slate-900 shadow-2xl overflow-hidden text-slate-800 dark:text-portfolio-text"
             >
-              {/* Close Button */}
               <button
                 onClick={() => setSelectedProject(null)}
                 className="absolute top-4 right-4 z-10 p-2 rounded-full bg-slate-900/60 dark:bg-white/10 text-white hover:bg-slate-800 dark:hover:bg-white/20 transition-colors"
@@ -260,7 +243,6 @@ const Projects = () => {
                 <X size={16} />
               </button>
 
-              {/* Modal Image */}
               <div className="aspect-video w-full relative">
                 <img
                   src={selectedProject.image}
@@ -270,7 +252,6 @@ const Projects = () => {
                 <div className="absolute inset-0 bg-gradient-to-t from-white dark:from-slate-900 to-transparent" />
               </div>
 
-              {/* Modal Details */}
               <div className="p-6 md:p-8">
                 <span className="text-xs font-bold tracking-widest font-mono text-portfolio-primary dark:text-portfolio-accent uppercase">
                   {selectedProject.category}
@@ -281,10 +262,9 @@ const Projects = () => {
                   {selectedProject.description}
                 </p>
 
-                {/* Tech Stack */}
                 <div className="mt-6">
                   <h4 className="text-xs font-mono tracking-widest uppercase font-bold text-slate-500">
-                    Technology Stack
+                    Tools & Technologies
                   </h4>
                   <div className="mt-2 flex flex-wrap gap-2">
                     {selectedProject.technologies.map((tech) => (
@@ -298,26 +278,15 @@ const Projects = () => {
                   </div>
                 </div>
 
-                {/* Action CTA Links */}
                 <div className="mt-8 flex gap-4">
-                  {selectedProject.liveUrl && (
-                    <a
-                      href={selectedProject.liveUrl}
-                      target="_blank"
-                      rel="noreferrer"
-                      className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-portfolio-primary text-white hover:bg-portfolio-primary/90 shadow-lg shadow-portfolio-primary/20 transition-all"
-                    >
-                      <ExternalLink size={16} /> Live Preview
-                    </a>
-                  )}
                   {selectedProject.githubUrl && (
                     <a
                       href={selectedProject.githubUrl}
                       target="_blank"
                       rel="noreferrer"
-                      className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-slate-100 dark:bg-white/5 border border-slate-200 dark:border-portfolio-border hover:bg-slate-200 dark:hover:bg-white/10 transition-all"
+                      className="flex items-center gap-2 px-5 py-2.5 text-sm font-semibold rounded-full bg-portfolio-primary text-white hover:bg-portfolio-primary/90 shadow-lg shadow-portfolio-primary/20 transition-all"
                     >
-                      <Github size={16} /> Code Repository
+                      <Github size={16} /> GitHub Repository
                     </a>
                   )}
                 </div>
